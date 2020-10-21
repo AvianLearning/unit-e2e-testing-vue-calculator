@@ -17,6 +17,20 @@ describe('App.vue', () => {
     expect(wrapper.vm.runningTotal).to.equal(5);
   });
 
+  it('subtracting numbers returns correct total', () => {
+    const wrapper = shallowMount(App);
+    wrapper.vm.previousTotal = 7;
+    wrapper.vm.subtract('4');
+    expect(wrapper.vm.runningTotal).to.equal(3);
+  });
+
+  it('multiplying returns correct total', () => {
+    const wrapper = shallowMount(App);
+    wrapper.vm.previousTotal = 3;
+    wrapper.vm.multiply('5');
+    expect(wrapper.vm.runningTotal).to.equal(15);
+  })
+
 
 
 })
