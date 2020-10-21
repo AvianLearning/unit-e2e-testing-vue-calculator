@@ -8,5 +8,15 @@ describe('App.vue', () => {
     wrapper.vm.previousTotal = 4
     wrapper.vm.add('5');
     expect(wrapper.vm.runningTotal).to.equal(9)
-  })
+  });
+
+  it('adding numbers returns correct total', () => {
+    const wrapper = shallowMount(App);
+    wrapper.vm.previousTotal = 1;
+    wrapper.vm.add('4');
+    expect(wrapper.vm.runningTotal).to.equal(5);
+  });
+
+
+
 })
