@@ -10,14 +10,14 @@ describe('App.vue', () => {
     expect(wrapper.vm.runningTotal).to.equal(9)
   });
 
-  it('adding numbers returns correct total', () => {
+  it('adding returns correct total', () => {
     const wrapper = shallowMount(App);
     wrapper.vm.previousTotal = 1;
     wrapper.vm.add('4');
     expect(wrapper.vm.runningTotal).to.equal(5);
   });
 
-  it('subtracting numbers returns correct total', () => {
+  it('subtracting returns correct total', () => {
     const wrapper = shallowMount(App);
     wrapper.vm.previousTotal = 7;
     wrapper.vm.subtract('4');
@@ -29,7 +29,14 @@ describe('App.vue', () => {
     wrapper.vm.previousTotal = 3;
     wrapper.vm.multiply('5');
     expect(wrapper.vm.runningTotal).to.equal(15);
-  })
+  });
+
+  it('dividing returns correct total', () => {
+    const wrapper = shallowMount(App);
+    wrapper.vm.previousTotal = 21;
+    wrapper.vm.divide('7');
+    expect(wrapper.vm.runningTotal).to.equal(3);
+  });
 
 
 
