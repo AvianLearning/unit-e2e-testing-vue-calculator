@@ -52,7 +52,31 @@ describe('calculator', () => {
     cy.get('#operator_divide').click();
     cy.get('#number5').click();
     cy.get('#operator_equals').click();
-    cy.get('.display').should('contain', '1.6')
+    cy.get('.display').should('contain', '1.6');
+  });
+
+  it('should output very large numbers as expected', () => {
+    cy.get('#number9').click();
+    cy.get('#number9').click();
+    cy.get('#number9').click();
+    cy.get('#number9').click();
+    cy.get('#number9').click();
+    cy.get('#number9').click();
+    cy.get('#number9').click();
+    cy.get('#number9').click();
+    cy.get('#number9').click();
+    cy.get('#operator_multiply').click();
+    cy.get('#number9').click();
+    cy.get('#number9').click();
+    cy.get('#number9').click();
+    cy.get('#number9').click();
+    cy.get('#number9').click();
+    cy.get('#number9').click();
+    cy.get('#number9').click();
+    cy.get('#number9').click();
+    cy.get('#number9').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', '999999998000000000');
   });
 
 })
