@@ -79,4 +79,12 @@ describe('calculator', () => {
     cy.get('.display').should('contain', '999999998000000000');
   });
 
+  it('should return a string "Error" when dividing by zero', () => {
+    cy.get('#number2').click();
+    cy.get('#operator_divide').click();
+    cy.get('#number0').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', 'Error');
+  });
+
 })
