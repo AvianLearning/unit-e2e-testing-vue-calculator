@@ -22,6 +22,37 @@ describe('calculator', () => {
     cy.get('#number6').click();
     cy.get('#operator_equals').click();
     cy.get('.display').should('contain', '24');
-  })
+  });
+
+  it('multiple operations can be chained together', () => {
+    cy.get('#number1').click();
+    cy.get('#operator_add').click();
+    cy.get('#number2').click();
+    cy.get('#operator_multiply').click();
+    cy.get('#number3').click();
+    cy.get('#operator_multiply').click();
+    cy.get('#number8').click();
+    cy.get('#operator_equals').click();
+    cy.get('#operator_subtract').click();
+    cy.get('#number9').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', '63');
+    });
+  
+  it('should output negative numbers as expected', () => {
+    cy.get('#number6').click();
+    cy.get('#operator_subtract').click();
+    cy.get('#number7').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', '-1');
+  });
+
+  it('should output decimals as expected', () => {
+    cy.get('#number8').click();
+    cy.get('#operator_divide').click();
+    cy.get('#number5').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', '1.6')
+  });
 
 })
