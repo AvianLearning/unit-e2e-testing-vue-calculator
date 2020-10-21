@@ -63,7 +63,7 @@ describe('App.vue', () => {
     expect(wrapper.vm.runningTotal).to.equal(30);
   });
 
-  it('clear click should clear total without affecting', () => {
+  it('clear click should clear total without affecting calculation', () => {
     const wrapper = shallowMount(App);
     wrapper.vm.previousTotal = 10;
     wrapper.vm.add('2');
@@ -71,5 +71,5 @@ describe('App.vue', () => {
     wrapper.vm.multiply('5');
     expect(wrapper.vm.runningTotal).to.equal(50);
   });
-
+  
 })
