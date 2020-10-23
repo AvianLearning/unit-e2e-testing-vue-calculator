@@ -2,7 +2,8 @@
   <div class="container">
     <h1>{{ msg }}</h1>
     <div class="calculator">
-      <div class="display">{{ runningTotal }}</div>
+      <div v-if="runningTotal !== Infinity" class="display">{{ runningTotal }}</div>
+      <div v-else class="display">Error</div>
       <calculator />
     </div>
   </div>
@@ -92,7 +93,7 @@ export default {
       this.runningTotal = parseFloat(this.previousTotal) * parseFloat(number);
     },
     divide(number) {
-      this.runningTotal = parseFloat(this.previousTotal) / parseFloat(number);
+      this.runningTotal = parseFloat(this.previousTotal) / parseFloat(number);    
     },
   },
 };

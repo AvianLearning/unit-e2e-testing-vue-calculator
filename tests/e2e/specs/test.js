@@ -84,7 +84,7 @@ describe('calculator', () => {
     cy.get('#operator_divide').click();
     cy.get('#number0').click();
     cy.get('#operator_equals').click();
-    cy.get('.display').should('contain', 'Error');
+    cy.get('.display').should('contain', "Error");
   });
 
 })
